@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+#import "HTImagePickerController.h"
+
+
 @interface ViewController ()
 
 @end
@@ -16,12 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)clickCamera:(id)sender {
+    
+    
+    HTImagePickerController *picker = [[HTImagePickerController alloc] init];
+    
+    [self presentViewController:picker animated:YES completion:^{
+    
+    }];
+    
+
+    
 }
+
 
 @end

@@ -13,6 +13,9 @@
 		E36761841CA67BFD00AF45DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E36761821CA67BFD00AF45DC /* Main.storyboard */; };
 		E36761861CA67BFD00AF45DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E36761851CA67BFD00AF45DC /* Assets.xcassets */; };
 		E36761891CA67BFD00AF45DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E36761871CA67BFD00AF45DC /* LaunchScreen.storyboard */; };
+		E36761931CA6872900AF45DC /* HTImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761921CA6872900AF45DC /* HTImagePickerController.m */; };
+		E36761961CA68F1D00AF45DC /* HTAlbumsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761951CA68F1D00AF45DC /* HTAlbumsTableViewController.m */; };
+		E36761991CA690D800AF45DC /* HTAlbumsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761981CA690D800AF45DC /* HTAlbumsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		E36761851CA67BFD00AF45DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E36761881CA67BFD00AF45DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E367618A1CA67BFD00AF45DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E36761911CA6872900AF45DC /* HTImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTImagePickerController.h; sourceTree = "<group>"; };
+		E36761921CA6872900AF45DC /* HTImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTImagePickerController.m; sourceTree = "<group>"; };
+		E36761941CA68F1D00AF45DC /* HTAlbumsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAlbumsTableViewController.h; sourceTree = "<group>"; };
+		E36761951CA68F1D00AF45DC /* HTAlbumsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAlbumsTableViewController.m; sourceTree = "<group>"; };
+		E36761971CA690D800AF45DC /* HTAlbumsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAlbumsTableViewCell.h; sourceTree = "<group>"; };
+		E36761981CA690D800AF45DC /* HTAlbumsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAlbumsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +92,12 @@
 		E36761901CA67D4A00AF45DC /* HTImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				E36761911CA6872900AF45DC /* HTImagePickerController.h */,
+				E36761921CA6872900AF45DC /* HTImagePickerController.m */,
+				E36761941CA68F1D00AF45DC /* HTAlbumsTableViewController.h */,
+				E36761951CA68F1D00AF45DC /* HTAlbumsTableViewController.m */,
+				E36761971CA690D800AF45DC /* HTAlbumsTableViewCell.h */,
+				E36761981CA690D800AF45DC /* HTAlbumsTableViewCell.m */,
 			);
 			path = HTImagePicker;
 			sourceTree = "<group>";
@@ -158,8 +173,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E36761811CA67BFD00AF45DC /* ViewController.m in Sources */,
+				E36761931CA6872900AF45DC /* HTImagePickerController.m in Sources */,
 				E367617E1CA67BFD00AF45DC /* AppDelegate.m in Sources */,
+				E36761961CA68F1D00AF45DC /* HTAlbumsTableViewController.m in Sources */,
 				E367617B1CA67BFD00AF45DC /* main.m in Sources */,
+				E36761991CA690D800AF45DC /* HTAlbumsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
