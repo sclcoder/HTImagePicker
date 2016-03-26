@@ -58,6 +58,7 @@
 		E36761781CA67BFD00AF45DC /* HTImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				E36761901CA67D4A00AF45DC /* HTImagePicker */,
 				E367617C1CA67BFD00AF45DC /* AppDelegate.h */,
 				E367617D1CA67BFD00AF45DC /* AppDelegate.m */,
 				E367617F1CA67BFD00AF45DC /* ViewController.h */,
@@ -77,6 +78,13 @@
 				E367617A1CA67BFD00AF45DC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E36761901CA67D4A00AF45DC /* HTImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HTImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
