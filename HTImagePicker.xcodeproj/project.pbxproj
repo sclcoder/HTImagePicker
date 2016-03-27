@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 046875681CA82A2A00292FB8 /* HTAlbum.m */; settings = {ASSET_TAGS = (); }; };
 		E367617B1CA67BFD00AF45DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E367617A1CA67BFD00AF45DC /* main.m */; };
 		E367617E1CA67BFD00AF45DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E367617D1CA67BFD00AF45DC /* AppDelegate.m */; };
 		E36761811CA67BFD00AF45DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761801CA67BFD00AF45DC /* ViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		046875671CA82A2A00292FB8 /* HTAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAlbum.h; sourceTree = "<group>"; };
+		046875681CA82A2A00292FB8 /* HTAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAlbum.m; sourceTree = "<group>"; };
 		E36761761CA67BFD00AF45DC /* HTImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E367617A1CA67BFD00AF45DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E367617C1CA67BFD00AF45DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				E36761951CA68F1D00AF45DC /* HTAlbumsTableViewController.m */,
 				E36761971CA690D800AF45DC /* HTAlbumsTableViewCell.h */,
 				E36761981CA690D800AF45DC /* HTAlbumsTableViewCell.m */,
+				046875671CA82A2A00292FB8 /* HTAlbum.h */,
+				046875681CA82A2A00292FB8 /* HTAlbum.m */,
 			);
 			path = HTImagePicker;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E36761811CA67BFD00AF45DC /* ViewController.m in Sources */,
+				046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */,
 				E36761931CA6872900AF45DC /* HTImagePickerController.m in Sources */,
 				E367617E1CA67BFD00AF45DC /* AppDelegate.m in Sources */,
 				E36761961CA68F1D00AF45DC /* HTAlbumsTableViewController.m in Sources */,
@@ -288,6 +294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HTImagePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.scl.HTImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -299,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HTImagePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.scl.HTImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -324,6 +332,7 @@
 				E367618F1CA67BFD00AF45DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

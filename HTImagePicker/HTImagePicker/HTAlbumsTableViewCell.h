@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTAlbum.h"
 
 @interface HTAlbumsTableViewCell : UITableViewCell
+
+@property (nonatomic) HTAlbum *album;
 
 @end
