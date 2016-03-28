@@ -54,7 +54,7 @@
 
 - (void)seletedButtonDidClick:(HTImageSelectedButton *)button{
     
-
+    NSLog(@"%s",__func__);
 }
 
 @end

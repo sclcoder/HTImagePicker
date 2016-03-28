@@ -123,7 +123,6 @@
     
     for (int i = 0; i < 3 && i < (_fetchResult.count - 1); i++) {
         
-        
         PHAsset *asset = _fetchResult[i];
 
         dispatch_group_enter(group);

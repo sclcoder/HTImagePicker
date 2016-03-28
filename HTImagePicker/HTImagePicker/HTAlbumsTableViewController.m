@@ -137,9 +137,11 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
      
      */
 
-    PHFetchResult *userLibrary = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum
+    PHFetchResult *userLibrary = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum
                                              subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary
                                              options:nil];
+    
+//    PHFetchResult *syncAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumSyncedAlbum options:nil];
     
     NSMutableArray *result = [NSMutableArray array];
     [userLibrary enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -147,6 +149,10 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
         [result addObject:[HTAlbum albumWithAssetCollection:obj]];
         
     }];
+    
+//    [syncAlbum enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        [result addObject:[HTAlbum albumWithAssetCollection:obj]];
+//    }];
     
     
     // 同步回调

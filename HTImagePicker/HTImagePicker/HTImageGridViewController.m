@@ -74,7 +74,7 @@ static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIde
     // Register cell classes
     [self.collectionView registerClass:[HTImageGridCell class] forCellWithReuseIdentifier:HTImageGridViewCellIdentifier];
     
-    self.collectionView.backgroundColor = [UIColor blueColor];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     self.title = _album.title;
     
