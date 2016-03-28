@@ -10,7 +10,9 @@
 #import "HTAlbum.h"
 
 @interface HTAlbumsTableViewCell : UITableViewCell
-
+/** 
+ *  相册模型
+ */
 @property (nonatomic) HTAlbum *album;
 
 @end

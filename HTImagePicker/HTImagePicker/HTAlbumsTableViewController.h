@@ -11,4 +11,8 @@
 
 @interface HTAlbumsTableViewController : UITableViewController
 
+- (instancetype)initWithSelectedAssets:(NSMutableArray<PHAsset *> *)selectedAssets;
+
+@property (nonatomic, assign) NSInteger maxPickerCount;
+
 @end

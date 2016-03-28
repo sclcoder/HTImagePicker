@@ -29,7 +29,7 @@
             _selectedAssets = [NSMutableArray array];
         }
         
-        _rootViewController = [[HTAlbumsTableViewController alloc] init];
+        _rootViewController = [[HTAlbumsTableViewController alloc] initWithSelectedAssets:_selectedAssets];
 
         // 默认最多选中9张照片 封装在init放中 外部可以自己设定
         self.maxPickerCount = 9;
@@ -48,6 +48,14 @@
 
 #pragma - mark setter和getter
 
+- (void)setMaxPickerCount:(NSInteger)maxPickerCount{
+    
+    _rootViewController.maxPickerCount = maxPickerCount;
+}
 
+- (NSInteger)maxPickerCount{
+    
+    return _rootViewController.maxPickerCount;
+}
 
 @end

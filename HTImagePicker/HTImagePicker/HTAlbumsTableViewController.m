@@ -9,6 +9,7 @@
 #import "HTAlbumsTableViewController.h"
 #import "HTAlbumsTableViewCell.h"
 #import "HTAlbum.h"
+#import "HTImageGridViewController.h"
 
 static NSString *const HTAlbumsTableViewCellIdentifer = @"HTAlbumsTableViewCellIdentifer";
 
@@ -23,25 +24,41 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
     /**
      *  已经选中的资源数组
      */
-    NSMutableArray<PHAsset *> *selectedAssets;
+    NSMutableArray<PHAsset *> *_selectedAssets;
     
 }
 @end
 
 @implementation HTAlbumsTableViewController
 
+- (instancetype)initWithSelectedAssets:(NSMutableArray<PHAsset *> *)selectedAssets{
+    self = [super init];
+    if (self) {
+        _selectedAssets = selectedAssets;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     self.title = @"相册薄";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(clickCancleButton)];
     
+    // 设置表格
+    [self.tableView registerClass:[HTAlbumsTableViewCell class] forCellReuseIdentifier:HTAlbumsTableViewCellIdentifer];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = 80;
+    
+    
     [self checkAuthorizationStatusWithCompletion:^(NSArray<HTAlbum *> *assetCollections, BOOL isAuthorized) {
         if (isAuthorized) {
             
             _assetCollections = assetCollections;
-            NSLog(@"%zd",_assetCollections.count);
+            
+            [self.tableView reloadData];
             
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"无权访问相册，请授权" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -70,7 +87,7 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
             // 授权
         case PHAuthorizationStatusAuthorized:
             
-            NSLog(@"PHAuthorizationStatusAuthorized");
+//            NSLog(@"PHAuthorizationStatusAuthorized");
             // 拉取相册
             [self fetchResultWithCompletion:completion];
             break;
@@ -78,18 +95,18 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
             // 拒绝
         case PHAuthorizationStatusDenied:
             
-            NSLog(@"PHAuthorizationStatusDenied");
+//            NSLog(@"PHAuthorizationStatusDenied");
             // 没有授权
         case PHAuthorizationStatusRestricted:
             
-            NSLog(@"PHAuthorizationStatusRestricted");
+//            NSLog(@"PHAuthorizationStatusRestricted");
             completion(nil,NO);
             break;
             
             // 未决定
         case PHAuthorizationStatusNotDetermined:
             
-            NSLog(@"PHAuthorizationStatusNotDetermined");
+//            NSLog(@"PHAuthorizationStatusNotDetermined");
             [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
                 
                 if (status == PHAuthorizationStatusAuthorized) {
@@ -140,12 +157,8 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
 }
 
 
-#pragma -mark HTAlbumsTableViewDataSource
+#pragma mark - HTAlbumsTableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-
-    return  1;
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return _assetCollections.count;
@@ -155,12 +168,19 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
     
     HTAlbumsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HTAlbumsTableViewCellIdentifer];
     
-    if (cell == nil) {
-        cell = [[HTAlbumsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:HTAlbumsTableViewCellIdentifer];
-    }
-    
     cell.album = _assetCollections[indexPath.row];
     
     return cell;
+}
+
+#pragma mark - HTAlbumsTableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    HTAlbum *album = _assetCollections[indexPath.row];
+    HTImageGridViewController *imageGridVc = [[HTImageGridViewController alloc]
+                                              initWithAlbum:album
+                                              selectedAssets:_selectedAssets
+                                              maxPickerCount:_maxPickerCount];
+    [self.navigationController pushViewController:imageGridVc animated:YES];
 }
 @end

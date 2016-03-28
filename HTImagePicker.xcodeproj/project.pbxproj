@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 046875681CA82A2A00292FB8 /* HTAlbum.m */; settings = {ASSET_TAGS = (); }; };
+		046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 046875681CA82A2A00292FB8 /* HTAlbum.m */; };
 		E367617B1CA67BFD00AF45DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E367617A1CA67BFD00AF45DC /* main.m */; };
 		E367617E1CA67BFD00AF45DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E367617D1CA67BFD00AF45DC /* AppDelegate.m */; };
 		E36761811CA67BFD00AF45DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761801CA67BFD00AF45DC /* ViewController.m */; };
@@ -17,6 +17,11 @@
 		E36761931CA6872900AF45DC /* HTImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761921CA6872900AF45DC /* HTImagePickerController.m */; };
 		E36761961CA68F1D00AF45DC /* HTAlbumsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761951CA68F1D00AF45DC /* HTAlbumsTableViewController.m */; };
 		E36761991CA690D800AF45DC /* HTAlbumsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761981CA690D800AF45DC /* HTAlbumsTableViewCell.m */; };
+		E367619C1CA9080E00AF45DC /* HTImageGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E367619B1CA9080E00AF45DC /* HTImageGridViewController.m */; };
+		E367619F1CA9186600AF45DC /* HTImageGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E367619E1CA9186600AF45DC /* HTImageGridCell.m */; };
+		E36761A21CA91F2100AF45DC /* HTImageGridViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761A11CA91F2100AF45DC /* HTImageGridViewLayout.m */; };
+		E36761A51CA923BF00AF45DC /* HTImageSelectedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761A41CA923BF00AF45DC /* HTImageSelectedButton.m */; };
+		E36761A71CA92AA600AF45DC /* HTImagePickerBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E36761A61CA92AA600AF45DC /* HTImagePickerBundle.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,15 @@
 		E36761951CA68F1D00AF45DC /* HTAlbumsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAlbumsTableViewController.m; sourceTree = "<group>"; };
 		E36761971CA690D800AF45DC /* HTAlbumsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAlbumsTableViewCell.h; sourceTree = "<group>"; };
 		E36761981CA690D800AF45DC /* HTAlbumsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAlbumsTableViewCell.m; sourceTree = "<group>"; };
+		E367619A1CA9080E00AF45DC /* HTImageGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTImageGridViewController.h; sourceTree = "<group>"; };
+		E367619B1CA9080E00AF45DC /* HTImageGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTImageGridViewController.m; sourceTree = "<group>"; };
+		E367619D1CA9186600AF45DC /* HTImageGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTImageGridCell.h; sourceTree = "<group>"; };
+		E367619E1CA9186600AF45DC /* HTImageGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTImageGridCell.m; sourceTree = "<group>"; };
+		E36761A01CA91F2100AF45DC /* HTImageGridViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTImageGridViewLayout.h; sourceTree = "<group>"; };
+		E36761A11CA91F2100AF45DC /* HTImageGridViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTImageGridViewLayout.m; sourceTree = "<group>"; };
+		E36761A31CA923BF00AF45DC /* HTImageSelectedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTImageSelectedButton.h; sourceTree = "<group>"; };
+		E36761A41CA923BF00AF45DC /* HTImageSelectedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTImageSelectedButton.m; sourceTree = "<group>"; };
+		E36761A61CA92AA600AF45DC /* HTImagePickerBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HTImagePickerBundle.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +109,7 @@
 		E36761901CA67D4A00AF45DC /* HTImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				E36761A61CA92AA600AF45DC /* HTImagePickerBundle.bundle */,
 				E36761911CA6872900AF45DC /* HTImagePickerController.h */,
 				E36761921CA6872900AF45DC /* HTImagePickerController.m */,
 				E36761941CA68F1D00AF45DC /* HTAlbumsTableViewController.h */,
@@ -103,6 +118,14 @@
 				E36761981CA690D800AF45DC /* HTAlbumsTableViewCell.m */,
 				046875671CA82A2A00292FB8 /* HTAlbum.h */,
 				046875681CA82A2A00292FB8 /* HTAlbum.m */,
+				E367619A1CA9080E00AF45DC /* HTImageGridViewController.h */,
+				E367619B1CA9080E00AF45DC /* HTImageGridViewController.m */,
+				E367619D1CA9186600AF45DC /* HTImageGridCell.h */,
+				E367619E1CA9186600AF45DC /* HTImageGridCell.m */,
+				E36761A01CA91F2100AF45DC /* HTImageGridViewLayout.h */,
+				E36761A11CA91F2100AF45DC /* HTImageGridViewLayout.m */,
+				E36761A31CA923BF00AF45DC /* HTImageSelectedButton.h */,
+				E36761A41CA923BF00AF45DC /* HTImageSelectedButton.m */,
 			);
 			path = HTImagePicker;
 			sourceTree = "<group>";
@@ -165,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E36761891CA67BFD00AF45DC /* LaunchScreen.storyboard in Resources */,
+				E36761A71CA92AA600AF45DC /* HTImagePickerBundle.bundle in Resources */,
 				E36761861CA67BFD00AF45DC /* Assets.xcassets in Resources */,
 				E36761841CA67BFD00AF45DC /* Main.storyboard in Resources */,
 			);
@@ -178,10 +202,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E36761811CA67BFD00AF45DC /* ViewController.m in Sources */,
+				E367619F1CA9186600AF45DC /* HTImageGridCell.m in Sources */,
+				E36761A21CA91F2100AF45DC /* HTImageGridViewLayout.m in Sources */,
 				046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */,
+				E367619C1CA9080E00AF45DC /* HTImageGridViewController.m in Sources */,
 				E36761931CA6872900AF45DC /* HTImagePickerController.m in Sources */,
 				E367617E1CA67BFD00AF45DC /* AppDelegate.m in Sources */,
 				E36761961CA68F1D00AF45DC /* HTAlbumsTableViewController.m in Sources */,
+				E36761A51CA923BF00AF45DC /* HTImageSelectedButton.m in Sources */,
 				E367617B1CA67BFD00AF45DC /* main.m in Sources */,
 				E36761991CA690D800AF45DC /* HTAlbumsTableViewCell.m in Sources */,
 			);
