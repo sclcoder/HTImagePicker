@@ -40,14 +40,20 @@
     return _imageView;
 }
 
+
 - (HTImageSelectedButton *)seletedButton{
     if (_seletedButton == nil) {
         _seletedButton = [[HTImageSelectedButton alloc]
                           initWithImageName:@"check_box_default"
                           selectedName:@"check_box_right"];
         
+        
+        // 方案1 target是控制器 按钮seletedButton内部拦截touch事件
         [self.seletedButton addTarget:self action:@selector(seletedButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
-
+        
+        // 方案2 targer是nil 这时会沿着响应者链条寻找实现action的对象 在此方案中在selectedButton内部实现action 这样按钮内部不需要在touch方法中做事情 直接在action中处理
+//        [self.seletedButton addTarget:self.seletedButton action:@selector(seletedButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return _seletedButton;
 }
