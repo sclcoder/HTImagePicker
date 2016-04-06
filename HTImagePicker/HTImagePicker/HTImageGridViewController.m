@@ -114,12 +114,15 @@ static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIde
 }
 
 
-#pragma mark - UICollectionViewDelegate
+#pragma mark - UICollectionView Delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    [self showPreViewControllerWithIndexPath:indexPath];
 }
 
+- (void)showPreViewControllerWithIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 
 - (void)setupToolBarAndCell{

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 046875681CA82A2A00292FB8 /* HTAlbum.m */; };
 		E3238F291CB4F4A1002D83FC /* HTSelectedCounterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3238F281CB4F4A1002D83FC /* HTSelectedCounterButton.m */; };
+		E3238F2D1CB50614002D83FC /* HTPreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3238F2C1CB50614002D83FC /* HTPreViewController.m */; };
 		E367617B1CA67BFD00AF45DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E367617A1CA67BFD00AF45DC /* main.m */; };
 		E367617E1CA67BFD00AF45DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E367617D1CA67BFD00AF45DC /* AppDelegate.m */; };
 		E36761811CA67BFD00AF45DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761801CA67BFD00AF45DC /* ViewController.m */; };
@@ -31,6 +32,8 @@
 		E3238F271CB4F4A1002D83FC /* HTSelectedCounterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSelectedCounterButton.h; sourceTree = "<group>"; };
 		E3238F281CB4F4A1002D83FC /* HTSelectedCounterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSelectedCounterButton.m; sourceTree = "<group>"; };
 		E3238F2A1CB4FBD1002D83FC /* HTImagePickerGlobl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTImagePickerGlobl.h; sourceTree = "<group>"; };
+		E3238F2B1CB50614002D83FC /* HTPreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPreViewController.h; sourceTree = "<group>"; };
+		E3238F2C1CB50614002D83FC /* HTPreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPreViewController.m; sourceTree = "<group>"; };
 		E36761761CA67BFD00AF45DC /* HTImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E367617A1CA67BFD00AF45DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E367617C1CA67BFD00AF45DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				E36761A41CA923BF00AF45DC /* HTImageSelectedButton.m */,
 				E3238F271CB4F4A1002D83FC /* HTSelectedCounterButton.h */,
 				E3238F281CB4F4A1002D83FC /* HTSelectedCounterButton.m */,
+				E3238F2B1CB50614002D83FC /* HTPreViewController.h */,
+				E3238F2C1CB50614002D83FC /* HTPreViewController.m */,
 			);
 			path = HTImagePicker;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				E36761811CA67BFD00AF45DC /* ViewController.m in Sources */,
 				E3238F291CB4F4A1002D83FC /* HTSelectedCounterButton.m in Sources */,
 				E367619F1CA9186600AF45DC /* HTImageGridCell.m in Sources */,
+				E3238F2D1CB50614002D83FC /* HTPreViewController.m in Sources */,
 				E36761A21CA91F2100AF45DC /* HTImageGridViewLayout.m in Sources */,
 				046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */,
 				E367619C1CA9080E00AF45DC /* HTImageGridViewController.m in Sources */,
