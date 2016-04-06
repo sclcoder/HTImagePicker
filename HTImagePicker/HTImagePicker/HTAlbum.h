@@ -24,7 +24,7 @@ typedef void(^HTAlbumCompletion)(UIImage * thumbnail);
 
 /// 相册标题
 @property (nonatomic, readonly) NSString *title;
-/// 相册描述 readonly不会生成 setter 又重写了getter ？？
+/// 相册描述 readonly不会生成 setter 又重写了getter导致不会生成_desc成员变量
 @property (nonatomic, readonly) NSAttributedString *desc;
 /// 照片数量
 @property (nonatomic, readonly) NSInteger count;
@@ -46,5 +46,11 @@ typedef void(^HTAlbumCompletion)(UIImage * thumbnail);
 /// @param completion 完成回调
 - (void)requestThumbnailWithAssetIndex:(NSInteger)index size:(CGSize)size withCompletion:(HTAlbumCompletion)complition;
 
+/// 返回索引对应的资源素材
+///
+/// @param index 资源索引
+///
+/// @return 资源素材
+- (PHAsset *)assetWithIndex:(NSInteger)index;
 
 @end

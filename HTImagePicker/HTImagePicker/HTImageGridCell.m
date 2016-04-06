@@ -58,9 +58,11 @@
     return _seletedButton;
 }
 
+#pragma mark - HTImageGridCellDelegate
 - (void)seletedButtonDidClick:(HTImageSelectedButton *)button{
-    
-    NSLog(@"%s",__func__);
+    if ([self.gridCellDelegate respondsToSelector:@selector(gridCell:didSelected:)]) {
+        [self.gridCellDelegate gridCell:self didSelected:button.selected];
+    }
 }
 
 @end

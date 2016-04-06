@@ -31,6 +31,10 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
 
 @implementation HTAlbumsTableViewController
 
+- (void)dealloc{
+    NSLog(@"%s",__func__);
+}
+
 - (instancetype)initWithSelectedAssets:(NSMutableArray<PHAsset *> *)selectedAssets{
     self = [super init];
     if (self) {
@@ -54,11 +58,20 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
     
     
     [self checkAuthorizationStatusWithCompletion:^(NSArray<HTAlbum *> *assetCollections, BOOL isAuthorized) {
+
         if (isAuthorized) {
-            
+
             _assetCollections = assetCollections;
             
             [self.tableView reloadData];
+            
+            if (_assetCollections.count > 0) {
+                
+                // reloadData后可以默认显示第一个相册
+                
+                HTImageGridViewController *gridVc = [[HTImageGridViewController alloc] initWithAlbum:_assetCollections[0] selectedAssets:_selectedAssets maxPickerCount:_maxPickerCount];
+                [self.navigationController pushViewController:gridVc animated:NO];
+            }
             
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"无权访问相册，请授权" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];

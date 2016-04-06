@@ -9,6 +9,8 @@
 #import "HTImagePickerController.h"
 #import "HTAlbumsTableViewController.h"
 
+/// 全局常量
+NSString *const HTImagePickerBundleName = @"HTImagePickerBundle.bundle";
 
 @interface HTImagePickerController ()
 {
@@ -18,6 +20,10 @@
 @end
 
 @implementation HTImagePickerController
+
+- (void)dealloc{
+    NSLog(@"%s",__func__);
+}
 
 - (instancetype)initWithSelectedAssets:(NSArray<PHAsset *> *)selectedAssets{
     self = [super init];
@@ -57,5 +63,23 @@
     
     return _rootViewController.maxPickerCount;
 }
+
+#pragma mark - UINavigationController 父类方法
+
+/// 处理toolBar的显示与隐藏
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    
+    self.toolbarHidden = [viewController isKindOfClass:[HTAlbumsTableViewController class]];
+    [super pushViewController:viewController animated:animated];
+    
+}
+
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated{
+    
+    UIViewController *viewController = [super popViewControllerAnimated:animated];
+    self.toolbarHidden = self.viewControllers.count == 1;
+    return viewController;
+}
+
 
 @end

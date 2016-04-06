@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 046875681CA82A2A00292FB8 /* HTAlbum.m */; };
+		E3238F291CB4F4A1002D83FC /* HTSelectedCounterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3238F281CB4F4A1002D83FC /* HTSelectedCounterButton.m */; };
 		E367617B1CA67BFD00AF45DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E367617A1CA67BFD00AF45DC /* main.m */; };
 		E367617E1CA67BFD00AF45DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E367617D1CA67BFD00AF45DC /* AppDelegate.m */; };
 		E36761811CA67BFD00AF45DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36761801CA67BFD00AF45DC /* ViewController.m */; };
@@ -27,6 +28,9 @@
 /* Begin PBXFileReference section */
 		046875671CA82A2A00292FB8 /* HTAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAlbum.h; sourceTree = "<group>"; };
 		046875681CA82A2A00292FB8 /* HTAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAlbum.m; sourceTree = "<group>"; };
+		E3238F271CB4F4A1002D83FC /* HTSelectedCounterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSelectedCounterButton.h; sourceTree = "<group>"; };
+		E3238F281CB4F4A1002D83FC /* HTSelectedCounterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSelectedCounterButton.m; sourceTree = "<group>"; };
+		E3238F2A1CB4FBD1002D83FC /* HTImagePickerGlobl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTImagePickerGlobl.h; sourceTree = "<group>"; };
 		E36761761CA67BFD00AF45DC /* HTImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E367617A1CA67BFD00AF45DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E367617C1CA67BFD00AF45DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				E36761A61CA92AA600AF45DC /* HTImagePickerBundle.bundle */,
 				E36761911CA6872900AF45DC /* HTImagePickerController.h */,
 				E36761921CA6872900AF45DC /* HTImagePickerController.m */,
+				E3238F2A1CB4FBD1002D83FC /* HTImagePickerGlobl.h */,
 				E36761941CA68F1D00AF45DC /* HTAlbumsTableViewController.h */,
 				E36761951CA68F1D00AF45DC /* HTAlbumsTableViewController.m */,
 				E36761971CA690D800AF45DC /* HTAlbumsTableViewCell.h */,
@@ -126,6 +131,8 @@
 				E36761A11CA91F2100AF45DC /* HTImageGridViewLayout.m */,
 				E36761A31CA923BF00AF45DC /* HTImageSelectedButton.h */,
 				E36761A41CA923BF00AF45DC /* HTImageSelectedButton.m */,
+				E3238F271CB4F4A1002D83FC /* HTSelectedCounterButton.h */,
+				E3238F281CB4F4A1002D83FC /* HTSelectedCounterButton.m */,
 			);
 			path = HTImagePicker;
 			sourceTree = "<group>";
@@ -202,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E36761811CA67BFD00AF45DC /* ViewController.m in Sources */,
+				E3238F291CB4F4A1002D83FC /* HTSelectedCounterButton.m in Sources */,
 				E367619F1CA9186600AF45DC /* HTImageGridCell.m in Sources */,
 				E36761A21CA91F2100AF45DC /* HTImageGridViewLayout.m in Sources */,
 				046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */,

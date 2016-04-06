@@ -20,7 +20,7 @@
     PHFetchResult *_fetchResult;
 
 }
-///  使用了readonly不会生成setter 又重写了getter 这时没法访问_desc
+///  使用了readonly不会生成setter 又重写了getter 这时没法访问_desc 使用synthesize 生成_desc一个私有的成员变量
 @synthesize desc = _desc;
 
 + (instancetype)albumWithAssetCollection:(PHAssetCollection *)assetCollection{
@@ -82,6 +82,14 @@
 }
 
 #pragma - mark  HTAlbum提供的接口实现
+
+- (PHAsset *)assetWithIndex:(NSInteger)index{
+    
+    if ( index < 0 || index >= _fetchResult.count) {
+        return nil;
+    }
+    return _fetchResult[index];
+}
 
 - (UIImage *)emptyImageWithSize:(CGSize)size{
     
