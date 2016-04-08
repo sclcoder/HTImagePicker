@@ -8,8 +8,8 @@
 
 #import "HTImageGridViewLayout.h"
 
-/// 最大 Cell 宽高
-#define HTGridCellMinWH 200
+/// 最大 Cell 宽高 --- 展示相册cell的宽高影响着图片的targetSize从而影响获取图片质量和获取速度
+#define HTGridCellMinWH 104
 
 @implementation HTImageGridViewLayout
 

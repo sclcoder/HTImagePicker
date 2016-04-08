@@ -9,6 +9,8 @@
 #import "HTImageGridCell.h"
 #import "HTImageGridViewLayout.h"
 #import "HTSelectedCounterButton.h"
+#import "HTPreViewController.h"
+
 
 static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIdentifier";
 
@@ -54,7 +56,7 @@ static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIde
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.collectionView reloadData];
     [self setupToolBarAndCell];
 }
 
@@ -121,7 +123,13 @@ static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIde
 }
 
 - (void)showPreViewControllerWithIndexPath:(NSIndexPath *)indexPath{
-    
+
+    HTPreViewController *preViewVc = [[HTPreViewController alloc]
+                                      initWithAlbum:_album
+                                      selectedAssets:_selectedAssets
+                                      maxPickerCount:_maxPickerCount
+                                      indexPath:indexPath];
+    [self.navigationController pushViewController:preViewVc animated:YES];
 }
 
 

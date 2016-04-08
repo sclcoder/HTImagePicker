@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTAlbum.h"
 
-@interface HTPreViewController : UICollectionViewController
+
+
+@interface HTPreViewController : UIViewController
+
+- (instancetype)initWithAlbum:(HTAlbum *)album
+               selectedAssets:(NSMutableArray<PHAsset *>*)selectedAssets
+               maxPickerCount:(NSInteger)maxPickerCount
+                    indexPath:(NSIndexPath *)indexPath;
 
 @end

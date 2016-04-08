@@ -65,13 +65,13 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
             
             [self.tableView reloadData];
             
-            if (_assetCollections.count > 0) {
-                
-                // reloadData后可以默认显示第一个相册
-                
-                HTImageGridViewController *gridVc = [[HTImageGridViewController alloc] initWithAlbum:_assetCollections[0] selectedAssets:_selectedAssets maxPickerCount:_maxPickerCount];
-                [self.navigationController pushViewController:gridVc animated:NO];
-            }
+//            if (_assetCollections.count > 0) {
+//                
+//                // reloadData后可以默认显示第一个相册
+//                
+//                HTImageGridViewController *gridVc = [[HTImageGridViewController alloc] initWithAlbum:_assetCollections[0] selectedAssets:_selectedAssets maxPickerCount:_maxPickerCount];
+//                [self.navigationController pushViewController:gridVc animated:NO];
+//            }
             
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"无权访问相册，请授权" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -100,7 +100,6 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
             // 授权
         case PHAuthorizationStatusAuthorized:
             
-//            NSLog(@"PHAuthorizationStatusAuthorized");
             // 拉取相册
             [self fetchResultWithCompletion:completion];
             break;
@@ -108,20 +107,20 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
             // 拒绝
         case PHAuthorizationStatusDenied:
             
-//            NSLog(@"PHAuthorizationStatusDenied");
             // 没有授权
         case PHAuthorizationStatusRestricted:
             
-//            NSLog(@"PHAuthorizationStatusRestricted");
             completion(nil,NO);
             break;
             
             // 未决定
         case PHAuthorizationStatusNotDetermined:
             
-//            NSLog(@"PHAuthorizationStatusNotDetermined");
+            // 本方法用于 用户选择授权时的回调
             [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
                 
+                NSLog(@"%@",[NSThread currentThread]);
+
                 if (status == PHAuthorizationStatusAuthorized) {
                     [self fetchResultWithCompletion:completion];
                 }
@@ -168,10 +167,13 @@ typedef void(^HTFecthResultBlock)(NSArray <HTAlbum *> *assetCollections, BOOL is
 //    }];
     
     
-    // 同步回调
-    if (completion) {
+    // 回到主线程回调 -- 因为completion的回调设计到UI更新 一定要在主线程
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
         completion(result.copy,YES);
-    }
+    });
+
+
     
 }
 
