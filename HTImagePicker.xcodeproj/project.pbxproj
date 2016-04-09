@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042F3B7A1CB98B300027C377 /* ViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F3B791CB98B300027C377 /* ViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		046875691CA82A2A00292FB8 /* HTAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 046875681CA82A2A00292FB8 /* HTAlbum.m */; };
 		E3238F291CB4F4A1002D83FC /* HTSelectedCounterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3238F281CB4F4A1002D83FC /* HTSelectedCounterButton.m */; };
 		E3238F2D1CB50614002D83FC /* HTPreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3238F2C1CB50614002D83FC /* HTPreViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042F3B781CB98B300027C377 /* ViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCell.h; sourceTree = "<group>"; };
+		042F3B791CB98B300027C377 /* ViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCell.m; sourceTree = "<group>"; };
 		046875671CA82A2A00292FB8 /* HTAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAlbum.h; sourceTree = "<group>"; };
 		046875681CA82A2A00292FB8 /* HTAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAlbum.m; sourceTree = "<group>"; };
 		E3238F271CB4F4A1002D83FC /* HTSelectedCounterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSelectedCounterButton.h; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 				E367617D1CA67BFD00AF45DC /* AppDelegate.m */,
 				E367617F1CA67BFD00AF45DC /* ViewController.h */,
 				E3238F371CB65375002D83FC /* ViewController.m */,
+				042F3B781CB98B300027C377 /* ViewCell.h */,
+				042F3B791CB98B300027C377 /* ViewCell.m */,
 				E36761821CA67BFD00AF45DC /* Main.storyboard */,
 				E36761851CA67BFD00AF45DC /* Assets.xcassets */,
 				E36761871CA67BFD00AF45DC /* LaunchScreen.storyboard */,
@@ -223,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042F3B7A1CB98B300027C377 /* ViewCell.m in Sources */,
 				E3238F381CB65375002D83FC /* ViewController.m in Sources */,
 				E3238F291CB4F4A1002D83FC /* HTSelectedCounterButton.m in Sources */,
 				E367619F1CA9186600AF45DC /* HTImageGridCell.m in Sources */,

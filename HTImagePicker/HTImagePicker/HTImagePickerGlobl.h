@@ -8,3 +8,5 @@
 
 // Bundle Name
 UIKIT_EXTERN  NSString *const HTImagePickerBundleName;
+
+UIKIT_EXTERN  NSString *const HTImagePickerSelectedNotification;

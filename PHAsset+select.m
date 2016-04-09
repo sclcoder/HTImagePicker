@@ -13,8 +13,6 @@
 
 const char SelectKey;
 
-/// 使用runtime的方式给每个asset关联一个是否选中的成员属性
-
 - (void)setSelected:(BOOL)selected{
     
     NSString *selectedStr = [NSString stringWithFormat:@"%zd",selected];

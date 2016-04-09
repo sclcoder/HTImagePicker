@@ -52,5 +52,13 @@ typedef void(^HTAlbumCompletion)(UIImage * thumbnail);
 ///
 /// @return 资源素材
 - (PHAsset *)assetWithIndex:(NSInteger)index;
+/**
+ *  获取资源位置
+ *
+ *  @param asset 资源
+ *
+ *  @return 位置
+ */
+- (NSInteger)indexWithAsset:(PHAsset *)asset;
 
 @end

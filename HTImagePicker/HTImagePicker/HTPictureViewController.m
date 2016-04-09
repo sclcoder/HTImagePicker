@@ -9,6 +9,7 @@
 #import "HTPictureViewController.h"
 
 @implementation HTPictureViewController
+
 {
     UIImageView *_imageView;
 }
@@ -16,8 +17,7 @@
 - (void)setAsset:(PHAsset *)asset{
 
     _asset = asset;
-    
-    
+
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
     options.synchronous = NO;
     options.resizeMode = PHImageRequestOptionsResizeModeFast;

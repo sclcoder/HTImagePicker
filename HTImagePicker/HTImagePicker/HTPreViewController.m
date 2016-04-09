@@ -10,9 +10,14 @@
 #import "HTSelectedCounterButton.h"
 #import "HTPictureViewController.h"
 #import "HTImageSelectedButton.h"
+#import "PHAsset+select.h"
+#import "HTImagePickerGlobl.h"
 
 @interface HTPreViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
 
+/**
+ *  这里写成属性的方式 是为了访问getter
+ */
 @property (nonatomic, strong) HTImageSelectedButton *selectedButton;
 
 @end
@@ -52,7 +57,10 @@
         
         _previewAssets = selectedAssets;
         
-        [self preparePageViewControllerWithIndex:indexPath.item];
+        NSInteger index = (indexPath != nil) ? indexPath.item : 0;
+        
+        [self preparePageViewControllerWithIndex:index];
+        
     }
     
     return self;
@@ -72,7 +80,47 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.selectedButton];
     
     // toolBar
+    UIBarButtonItem *cancleItem = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"取消"
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(cancleItemClick:)];
+    cancleItem.enabled = YES;
 
+    _counterButton = [[HTSelectedCounterButton alloc] init];
+    UIBarButtonItem *countItem = [[UIBarButtonItem alloc] initWithCustomView:_counterButton];
+    
+    _doneItem = [[UIBarButtonItem alloc]
+                 initWithTitle:@"完成"
+                 style:UIBarButtonItemStylePlain
+                 target:self
+                 action:@selector(doneItemClick:)];
+    _doneItem.enabled = YES;
+
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                  target:nil
+                                  action:nil];
+    
+    self.toolbarItems = @[cancleItem,spaceItem,countItem,_doneItem];
+    
+    [self updateCounter];
+    
+}
+
+- (void)updateCounter{
+    
+    _counterButton.count = _previewAssets.count;
+
+}
+
+- (void)cancleItemClick:(UIBarButtonItem *)cancleItem{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)doneItemClick:(UIBarButtonItem *)doneItem{
+ 
+    [[NSNotificationCenter defaultCenter] postNotificationName:HTImagePickerSelectedNotification object:self userInfo:nil];
 }
 
 - (HTImageSelectedButton *)selectedButton{
@@ -86,9 +134,26 @@
     return _selectedButton;
 }
 
-- (void)selectedButtonClick:(HTImageSelectedButton *)selectedButton{
+- (void)selectedButtonClick:(HTImageSelectedButton *)button{
+    
+    // 选中asset
+    if ([self.delegate respondsToSelector:@selector(preViewController:didChangeAsset:selected:)]) {
+        
+        // 获取当前展示的asset
+        HTPictureViewController *picVc = _pageViewController.viewControllers.lastObject;
 
-    NSLog(@"%s",__func__);
+        // 回调代理方法---此代理方法有返回值
+        BOOL canSelected = [self.delegate preViewController:self didChangeAsset:[self assetWithIndex:picVc.index] selected:button.selected];
+        
+        [self updateCounter];
+        
+        // 如果不能再选中了就取消选中
+        if (!canSelected) {
+            
+            button.selected = !button.selected;
+        }
+        
+    }
 }
 
 #pragma mark - privateMethod
@@ -104,6 +169,12 @@
                            options:options];
     _pageViewController.view.backgroundColor = [UIColor blueColor];
     
+    // runtime
+    PHAsset *asset = [self assetWithIndex:index];
+    self.selectedButton.selected = asset.selected ;
+    
+    
+    
     
     NSArray *viewControllers = @[[self pictureViewControllerWithIndex:index]];
     // Set visible view controllers, optionally with animation. Array should only include view controllers that will be visible after the animation has completed.
@@ -112,11 +183,10 @@
                                   direction:UIPageViewControllerNavigationDirectionForward
                                    animated:NO
                                  completion:nil];
+    
     // 注意！！将pageViewController 加到本控制器的viewControllers数组中
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
-    
-    
     
     _pageViewController.delegate = self;
     _pageViewController.dataSource = self;
@@ -167,8 +237,26 @@
 
 
 #pragma mark - UIPageViewController delegate
+
+// 将要过渡时调用
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers{
     
-//    NSLog(@"%@",pendingViewControllers);
+    HTPictureViewController *picVc = (HTPictureViewController *)pendingViewControllers.lastObject;
+    PHAsset *asset = [self assetWithIndex:picVc.index];
+    self.selectedButton.selected = asset.selected;
+    
 }
+
+// 当animation结束的时候调用
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
+    
+    // 注意:这里使用的是 _pageViewController.viewControllers.lastObject 就是当前正在显示的控制器
+    
+    HTPictureViewController *picVc = _pageViewController.viewControllers.lastObject;
+    PHAsset *asset = [self assetWithIndex:picVc.index];
+    self.selectedButton.selected = asset.selected;
+
+}
+
+
 @end

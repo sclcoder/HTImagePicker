@@ -10,11 +10,14 @@
 #import "HTImageGridViewLayout.h"
 #import "HTSelectedCounterButton.h"
 #import "HTPreViewController.h"
-
+#import "PHAsset+select.h"
+#import "HTPreViewController.h"
+#import "HTImageGridCell.h"
+#import "HTImagePickerGlobl.h"
 
 static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIdentifier";
 
-@interface HTImageGridViewController () <HTImageGridCellDelegate>
+@interface HTImageGridViewController () <HTImageGridCellDelegate,HTPreViewControllerDelegate>
 {
     
     HTAlbum *_album;
@@ -80,10 +83,11 @@ static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIde
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
     
     PHAsset *asset = [_album assetWithIndex:indexPath.item];
-    
     if (selected) {
+        asset.selected = YES;
         [_selectedAssets addObject:asset];
     } else {
+        asset.selected = NO;
         [_selectedAssets removeObject:asset];
     }
     [self updateCounter];
@@ -108,7 +112,17 @@ static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIde
         cell.imageView.image = thumbnail;
     }];
     // 将选中的图片选中
-    cell.seletedButton.selected =  [_selectedAssets containsObject:[_album assetWithIndex:indexPath.item]];
+//    cell.seletedButton.selected =  [_selectedAssets containsObject:[_album assetWithIndex:indexPath.item]];
+    
+    PHAsset *asset = [_album assetWithIndex:indexPath.item];
+    
+    if ([_selectedAssets containsObject:asset]) {
+        asset.selected = YES;
+    } else {
+        asset.selected = NO;
+    }
+    cell.seletedButton.selected = asset.selected;
+    
     
     cell.gridCellDelegate = self;
     
@@ -129,7 +143,50 @@ static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIde
                                       selectedAssets:_selectedAssets
                                       maxPickerCount:_maxPickerCount
                                       indexPath:indexPath];
+    preViewVc.delegate = self;
     [self.navigationController pushViewController:preViewVc animated:YES];
+}
+
+#pragma mark - HTPreViewController Delegate
+- (BOOL)preViewController:(HTPreViewController *)previewVc didChangeAsset:(PHAsset *)asset selected:(BOOL)selected{
+    
+    // 更新选中素材数组
+    if (selected) {
+        if (_selectedAssets.count == _maxPickerCount) {
+            NSString *message = [NSString stringWithFormat:@"最多只能选择 %zd 张照片", _maxPickerCount];
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            // 这里返回NO说明不能再选中了 即不能修改
+            return NO;
+        }
+        asset.selected = YES;
+        [_selectedAssets addObject:asset];
+        
+    } else {
+        asset.selected = NO;
+        [_selectedAssets removeObject:asset];
+    }
+    // _selectedAssets 数组发生变化需要更新数量
+    [self updateCounter];
+    
+    // 根据 asset 查找索引
+    NSInteger index = [_album indexWithAsset:asset];
+    if (index == NSNotFound) {
+        NSLog(@"没有在当前相册找到素材");
+        return YES;
+    }
+    
+    // 更新 Cell 显示
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    
+    HTImageGridCell *cell = (HTImageGridCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    cell.seletedButton.selected = selected;
+
+    return YES;
 }
 
 
@@ -179,14 +236,13 @@ static NSString * const HTImageGridViewCellIdentifier = @"HTImageGridViewCellIde
 }
 
 - (void)previewItemDidClick{
-
-    NSLog(@"%s",__func__);
     
+    [self showPreViewControllerWithIndexPath:nil];
 }
 
 - (void)doneItemDidClick{
-    
-    NSLog(@"%s",__func__);
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:HTImagePickerSelectedNotification object:self userInfo:nil];
 }
 
 - (void)closebuttonClick{
