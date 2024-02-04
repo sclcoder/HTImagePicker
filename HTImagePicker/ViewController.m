@@ -35,7 +35,7 @@
     
     picker.targetSize = CGSizeMake(400, 400);
     
-    picker.maxPickerCount = 3;
+    picker.maxPickerCount = 9;
     
     picker.pickerDelegate = self;
     

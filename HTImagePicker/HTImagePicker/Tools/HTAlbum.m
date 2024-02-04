@@ -7,7 +7,7 @@
 //
 
 #import "HTAlbum.h"
-
+#import <UIKit/UIKit.h>
 @implementation HTAlbum{
 
     /**
